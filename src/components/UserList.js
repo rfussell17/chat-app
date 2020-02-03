@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 
-function Input(){
+function UserList(){
   return(
     <h1></h1>
   )
 }
 
-export default Input;
+export default UserList;
