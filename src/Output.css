@@ -1,8 +1,24 @@
 .outputbox {
   background-color: white;
   height: 500px;
-  font-size: 12;
+  font-size: 14;
   margin-top: 20px;
   margin-right: 33px;
   border-radius: 5px;
+  padding-left: 10px;
+  padding-top: 10px;
+}
+
+.dwight {
+color: blue;
+font-weight: 500;
+}
+
+.comp {
+  color:red;
+  font-weight: 500;
+}
+
+span{
+font-weight: 600;
 }
