@@ -3,14 +3,20 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import './App.css';
 import './Input.css';
 import './Output.css';
-import './UserList.css';
 import Input from "./components/Input";
+import Output from './components/Output';
+import User from './components/User';
+import Container from "react-bootstrap/Container";
+
 
 function App() {
   return (
-    <div className="App">
+    <Container className="App">
+      <Container className="desktop">
+      <Output />
     <Input />
-    </div>
+    </Container>
+    </Container>
   );
 }
 

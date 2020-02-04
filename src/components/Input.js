@@ -6,22 +6,15 @@ import Container from "react-bootstrap/Container";
 function Input() {
   return (
     <Container>
-      <Form>
-        <div class="form-group">
-          <textarea
-            className="form-control"
-            id="input"
-            rows="3"
-          ></textarea>
-         <div className="button">
-          <button type="button" className="btn btn-light" >Send</button>
+      <Form name="message" type="text" required>
+        <div className="form-group">
+          <textarea className="form-control" id="input" rows="3"></textarea>
+          <div className="button">
+            <button type="button" className="btn btn-light">
+              Send
+            </button>
           </div>
         </div>
-        <Form.Control
-            name="message"
-            type="text"
-            required
-          />
       </Form>
     </Container>
   );
