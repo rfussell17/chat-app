@@ -1,20 +1,16 @@
-
-body{
-  background-color: grey;
+body {
+  background-color: lightblue;
   background-position: auto;
   padding-top: 20px;
   padding-bottom: 20px;
-
 }
 
 .desktop {
   background-color: #2cadfdc9;
-  padding-bottom: 40px;
+  padding-bottom: 55px;
   margin-top: 30px;
   padding-top: 10px;
   margin-bottom: 0;
-  max-height: 800px;
   padding-left: 150px;
-  border-radius: 5px;
-
+  border-radius: 10px;
 }
