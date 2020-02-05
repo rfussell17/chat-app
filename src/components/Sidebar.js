@@ -6,15 +6,11 @@ class Sidebar extends React.Component {
     return (
       <div className="sidebar">
         <p className="title">Online:</p>
-        <User 
-        name="DunMiff/sys"
-        />
-             <User 
-        name="DwightKSchrute"
-        />
+        <User name="DunMiff/sys" />
+        <User name="DwightKSchrute" />
       </div>
     );
   }
-  }
+}
 
 export default Sidebar;

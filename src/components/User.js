@@ -1,14 +1,13 @@
-import React from 'react';
+import React from "react";
 
-
-class User extends React.Component{
+class User extends React.Component {
   render() {
-    const {name} = this.props;
+    const { name } = this.props;
     return (
       <div>
-      <p>{name}:</p>
+        <p>{name}:</p>
       </div>
-    )
+    );
   }
 }
 

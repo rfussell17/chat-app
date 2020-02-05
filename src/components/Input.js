@@ -5,14 +5,18 @@ import Container from "react-bootstrap/Container";
 
 class Input extends Component {
   render() {
-    console.log(this.props)
+    const { message } = this.props;
+    console.log(this.props);
     return (
       <Container>
         <Form>
           <div className="form-group">
-            <input className="form-control" id="input" rows="3"
-            placeholder="Start a conversation">
-            </input>
+            <input
+              className="form-control"
+              id="input"
+              rows="3"
+              placeholder="Start a conversation"
+            ></input>
             <div className="button">
               <button type="button" className="btn btn-light">
                 Send
