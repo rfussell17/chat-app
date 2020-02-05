@@ -10,16 +10,6 @@ import Container from "react-bootstrap/Container";
 import Sidebar from "./components/Sidebar";
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
-  handleSubmit(event) {
-    event.preventDefault();
-    console.log("pressed send")
-  }
-
-
 render(){
   return (
     <Container className="App">

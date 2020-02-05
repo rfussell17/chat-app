@@ -5,6 +5,7 @@ import Container from "react-bootstrap/Container";
 
 class Input extends Component {
   render() {
+    console.log(this.props)
     return (
       <Container>
         <Form>
