@@ -4,8 +4,15 @@ import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/Container";
 
 class Input extends Component {
+  constructor(){
+    super()
+    this.state = {
+      messages: []
+    }
+  }
+
+
   render() {
-    const { message } = this.props;
     console.log(this.props);
     return (
       <Container>

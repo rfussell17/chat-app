@@ -3,7 +3,10 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 class Output extends Component {
   render() {
-    return <div className="outputbox"></div>;
+    const { message } = this.props;
+    return <div className="outputbox">
+      <p>{message}</p>
+    </div>;
   }
 }
 
