@@ -35,10 +35,9 @@ class Input extends Component {
         <Form onSubmit={this.handleSubmit}>
           <FormGroup>
           <div className="form-group">
-            <input
+            <input type = "text"
               className="form-control"
               id="input"
-              rows="3"
               placeholder="Start a conversation"
             ></input>
             <div className="button">
