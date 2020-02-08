@@ -16,7 +16,7 @@ const message = [
   }
 ];
 
-class Output extends Component {
+class ChatScreen extends Component {
   render() {
     return (
       <div className="outputbox">
@@ -33,4 +33,4 @@ class Output extends Component {
   }
 }
 
-export default Output;
+export default ChatScreen;

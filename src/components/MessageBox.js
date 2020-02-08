@@ -4,7 +4,7 @@ import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/Container";
 import FormGroup from "react-bootstrap/FormGroup";
 
-class Input extends Component {
+class MessageBox extends Component {
   constructor() {
     super();
     this.state = {
@@ -53,4 +53,4 @@ class Input extends Component {
   }
 }
 
-export default Input;
+export default MessageBox;
