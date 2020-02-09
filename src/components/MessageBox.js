@@ -2,51 +2,24 @@ import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/Container";
-import FormGroup from "react-bootstrap/FormGroup";
+import Button from "react-bootstrap/Button";
 
 class MessageBox extends Component {
-  constructor() {
-    super();
-    this.state = {
-      message: ""
-    };
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  handleChange(event) {
-    this.setState({
-      message: event.target.value
-    });
-  }
-
-  handleSubmit(event) {
-    event.preventDefault();
-    this.props.Msg(this.state.nessage);
-    this.setState({
-      message: ""
-    });
-  }
-
   render() {
     console.log(this.props);
     return (
       <Container>
         <Form onSubmit={this.handleSubmit}>
-          <FormGroup>
-          <div className="form-group">
-            <input type = "text"
-              className="form-control"
-              id="input"
-              placeholder="Start a conversation"
-            ></input>
-            <div className="button">
-              <button type="button" className="btn btn-light">
-                Send
-              </button>
-            </div>
+          <textarea
+            className="form-control"
+            id="input"
+            placeholder="Start a conversation"
+          ></textarea>
+          <div className="button">
+            <Button variant="light" className="button">
+              Send
+            </Button>
           </div>
-        </FormGroup>
         </Form>
       </Container>
     );

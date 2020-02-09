@@ -3,16 +3,12 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 const message = [
   {
-    user: "ron",
-    msg: "yo"
+    user: "DunMiff/sys",
+    msg: "Hello"
   },
   {
-    user: "leon",
-    msg: "yooo"
-  },
-  {
-    user: "ray-ron",
-    msg: "ayyee"
+    user: "DwightKSchrute",
+    msg: "who is this?"
   }
 ];
 
