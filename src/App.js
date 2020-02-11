@@ -10,8 +10,8 @@ import ChatScreen from "./components/ChatScreen";
 import Sidebar from "./components/Sidebar";
 
 class App extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       message: ""
     };
@@ -38,8 +38,15 @@ class App extends React.Component {
       <Container className="App">
         <Sidebar />
         <Container className="desktop">
-          <ChatScreen />
-          <MessageBox />
+          <ChatScreen 
+          handleChange={this.handleChange}
+          handleSubmit={this.handleSubmit}
+          message={this.message}/>
+          <MessageBox 
+          handleChange={this.handleChange}
+          handleSubmit={this.handleSubmit}
+          message={this.message}
+          />
         </Container>
       </Container>
     );
