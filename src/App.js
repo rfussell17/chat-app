@@ -1,9 +1,12 @@
+import uuid from "uuid/v4";
 import React from "react";
+
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import "./MessageBox.css";
 import "./ChatScreen.css";
 import "./Sidebar.css";
+
 import Container from "react-bootstrap/Container";
 import MessageBox from "./components/MessageBox";
 import ChatScreen from "./components/ChatScreen";
@@ -13,24 +16,33 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      message: ""
+      message: "",
+      conversation: []
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.gatherOutput = this.gatherOutput.bind(this);
   }
 
-  handleChange(event) {
+  gatherOutput(msg) {
     this.setState({
-      message: event.target.value
+      conversation: [...this.state.conversation, msg]
     });
   }
 
-  handleSubmit(event, props) {
-    console.log("button pressed");
+  handleSubmit(event) {
+    console.log("handleSubmit");
     event.preventDefault();
-    this.props.message(props.state.message);
+    this.gatherOutput({ ...this.state, id: uuid() });
     this.setState({
       message: ""
+    });
+  }
+
+  handleChange(event) {
+    console.log("handleChange");
+    this.setState({
+      [event.target.id]: event.target.value
     });
   }
   render() {
@@ -38,14 +50,17 @@ class App extends React.Component {
       <Container className="App">
         <Sidebar />
         <Container className="desktop">
-          <ChatScreen 
-          handleChange={this.handleChange}
-          handleSubmit={this.handleSubmit}
-          message={this.message}/>
-          <MessageBox 
-          handleChange={this.handleChange}
-          handleSubmit={this.handleSubmit}
-          message={this.message}
+          <ChatScreen
+            handleChange={this.handleChange}
+            gatherOutput={this.gatherOutput}
+            handleSubmit={this.handleSubmit}
+            conversation={this.conversation}
+          />
+          <MessageBox
+            handleChange={this.handleChange}
+            gatherOutput={this.gatherOutput}
+            handleSubmit={this.handleSubmit}
+            conversation={this.conversation}
           />
         </Container>
       </Container>

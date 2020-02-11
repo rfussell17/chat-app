@@ -1,4 +1,5 @@
-import React, { Component } from "react";
+import React from "react";
+
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const message = [
@@ -12,9 +13,9 @@ const message = [
   }
 ];
 
-class ChatScreen extends Component {
-  render() {
-    return (
+function ChatScreen(props) {
+
+  return (
       <div className="outputbox">
         {message.map((message, index) => {
           return (
@@ -27,6 +28,5 @@ class ChatScreen extends Component {
       </div>
     );
   }
-}
 
 export default ChatScreen;
