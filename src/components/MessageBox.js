@@ -7,15 +7,15 @@ class MessageBox extends Component {
   render() {
     return (
       <Container className="form-group">
-        <Form onSubmit={props.handleSubmit}>
+        <Form onSubmit={this.handleSubmit}>
         <textarea
           className="form-control"
           id="message"
           rows="2"
           required
-          value={props.message}
+          value={this.message}
           placeholder="Start a conversation..."
-          onChange={props.handleChange}
+          onChange={this.handleChange}
         />
         <Button type="submit" variant="light" className="button">
           Send

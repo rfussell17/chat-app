@@ -25,10 +25,10 @@ class App extends React.Component {
     });
   }
 
-  handleSubmit(event) {
+  handleSubmit(event, props) {
     console.log("button pressed");
     event.preventDefault();
-    this.props.message(this.state.message);
+    this.props.message(props.state.message);
     this.setState({
       message: ""
     });
