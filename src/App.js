@@ -50,7 +50,7 @@ class App extends React.Component {
       <Container className="App">
         <div className="sidebar">
           <p className="title">Online:</p>
-    <div name="user">{this.state.user}</div>
+          <div name="user">{this.state.user}</div>
         </div>
         <Container className="desktop">
           <div className="outputbox">
