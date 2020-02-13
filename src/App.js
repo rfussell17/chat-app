@@ -15,24 +15,9 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      messages: [
-        {
-          user: "DunMiff/sys",
-          message: "Who am I?"
-        },
-        {
-          user: "DwightKSchrute",
-          message: "You tell me."
-        },
-        {
-          user: "DunMiff/sys",
-          message: "Not sure."
-        },
-        {
-          user: "DunMiff/sys",
-          message: "Just became self-aware."
-        }
-      ]
+      messages: [],
+      user: "Robin",
+      message: ""
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -59,47 +44,44 @@ class App extends React.Component {
     this.setState({
       [event.target.id]: event.target.value
     });
-  } 
+  }
   render() {
-
     return (
       <Container className="App">
-              <div className="sidebar">
-        <p className="title">Online:</p>
-        < user name="DunMiff/sys" />
-        < user name="DwightKSchrute" />
-      </div>
+        <div className="sidebar">
+          <p className="title">Online:</p>
+    <div name="user">{this.state.user}</div>
+        </div>
         <Container className="desktop">
-        <div className="outputbox">
-        {this.state.messages.map((messages, index) => {
-          return (
-            <div key={index} className="msgObject">
-        <div className="user">{messages.user}:</div>
-              <div className="message">{messages.message}</div>
-            </div>
-          );
-        })}
-      </div>
-      <Container className="form-group">
-      <Form onSubmit={this.handleSubmit}>
-        <textarea
-          className="form-control"
-          id="message"
-          rows="2"
-          value={this.message}
-          placeholder="Start a conversation..."
-          onChange={this.handleChange}
-        />
-        <Button type="submit" variant="light" className="button">
-          Send
-        </Button>
-      </Form>
-    </Container>
+          <div className="outputbox">
+            {this.state.messages.map((messages, index) => {
+              return (
+                <div key={index} className="msgObject">
+                  <div className="user">{messages.user}:</div>
+                  <div className="message">{messages.message}</div>
+                </div>
+              );
+            })}
+          </div>
+          <Container className="form-group">
+            <Form onSubmit={this.handleSubmit}>
+              <textarea
+                className="form-control"
+                id="message"
+                rows="2"
+                value={this.message}
+                placeholder="Start a conversation..."
+                onChange={this.handleChange}
+              />
+              <Button type="submit" variant="light" className="button">
+                Send
+              </Button>
+            </Form>
+          </Container>
         </Container>
       </Container>
     );
   }
 }
-
 
 export default App;
