@@ -71,7 +71,7 @@ class App extends React.Component {
       </div>
         <Container className="desktop">
         <div className="outputbox">
-        {message.map((message, index) => {
+        {this.state.messages.map((messages, index) => {
           return (
             <div key={index} className="msgObject">
         <div className="user">{messages.user}:</div>
