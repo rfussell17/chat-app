@@ -65,11 +65,11 @@ class App extends React.Component {
           </div>
           <Container className="form-group">
             <Form onSubmit={this.handleSubmit}>
-              <textarea
+              <input
                 className="form-control"
                 id="message"
                 rows="2"
-                value={this.message}
+                value={this.state.message}
                 placeholder="Start a conversation..."
                 onChange={this.handleChange}
               />
