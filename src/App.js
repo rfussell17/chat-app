@@ -26,33 +26,42 @@ class App extends React.Component {
 
   gatherOutput(message) {
     this.setState({
-      messages: [...this.state.messages, message]
+      messages: [...this.state.messages, message],
+      message: this.state.message
     });
   }
 
   handleSubmit(event) {
-    console.log("handleSubmit");
     event.preventDefault();
     this.gatherOutput({ ...this.state, id: uuid() });
     this.setState({
-      message: ""
+      message: "",
+      user: this.state.user
     });
+    console.log("messages")
+    console.log(this.state.messages)
+    console.log("message")
+    console.log(this.state.message)
+    console.log("handleSubmit");
   }
 
   handleChange(event) {
-    console.log("handleChange");
     this.setState({
       [event.target.id]: event.target.value
     });
   }
+
+  
   render() {
     return (
+
       <Container className="App">
         <div className="sidebar">
           <p className="title">Online:</p>
-          <div name="user">{this.state.user}</div>
+    <div name="user">{this.state.user}</div>
         </div>
         <Container className="desktop">
+
           <div className="outputbox">
             {this.state.messages.map((messages, index) => {
               return (
