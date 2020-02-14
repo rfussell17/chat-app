@@ -11,6 +11,15 @@ import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 
+const express = require('express')
+const app = express()
+const port = process.env.PORT || 5000
+
+app.use(express.static('public'))
+
+app.listen(port, () => console.log(`Example app listening on port ${port}!`))
+app.use(express.static('public'))
+
 class App extends React.Component {
   constructor(props) {
     super(props);
