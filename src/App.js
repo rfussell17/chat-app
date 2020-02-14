@@ -68,7 +68,7 @@ class App extends React.Component {
           </div>
           <Container className="form-group">
             <Form onSubmit={this.handleSubmit}>
-              <textarea
+              <input type="text" required
                 className="form-control"
                 id="message"
                 rows="2"
