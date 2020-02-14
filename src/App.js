@@ -36,13 +36,7 @@ class App extends React.Component {
     this.gatherOutput({ ...this.state, id: uuid() });
     this.setState({
       message: "",
-      user: this.state.user
     });
-    console.log("messages")
-    console.log(this.state.messages)
-    console.log("message")
-    console.log(this.state.message)
-    console.log("handleSubmit");
   }
 
   handleChange(event) {
@@ -65,7 +59,7 @@ class App extends React.Component {
           <div className="outputbox">
             {this.state.messages.map((messages, index) => {
               return (
-                <div key={index} className="msgObject">
+                <div key={index}>
                   <div className="user">{messages.user}:</div>
                   <div className="message">{messages.message}</div>
                 </div>
@@ -78,7 +72,7 @@ class App extends React.Component {
                 className="form-control"
                 id="message"
                 rows="2"
-                value={this.message}
+                value={this.state.message}
                 placeholder="Start a conversation..."
                 onChange={this.handleChange}
               />
