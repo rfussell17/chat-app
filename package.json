@@ -1,18 +1,17 @@
 {
   "name": "chat-app",
   "version": "1.0.0",
-  "description": "chat-app",
+  "description": "",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js",
-    "dev": "concurrently \"node server.js\" \"npm run watch --prefix client\""
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/rfussell17/chat-app.git"
   },
-  "author": "Robin F.",
+  "author": "Robin F",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/rfussell17/chat-app/issues"
@@ -20,8 +19,5 @@
   "homepage": "https://github.com/rfussell17/chat-app#readme",
   "devDependencies": {
     "concurrently": "^5.1.0"
-  },
-  "dependencies": {
-    "express": "^4.17.1"
   }
 }
