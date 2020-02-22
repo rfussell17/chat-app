@@ -1,7 +1,8 @@
 
 const express = require('express');
 const app = express();
-const port = process.env.PORT || 4000;
+const port = process.env.PORT || 3000;
+var path = require("path");
 
 // console.log that your server is up and running
 app.listen(port, () => console.log(`Listening on port ${port}`));
@@ -15,6 +16,12 @@ app.get("/json", (req, res) => {
   res.json({ message: "Hello world" });
 });
 
-app.get("/", (req, res) => {
-  res.sendFile(__dirname + '/index.html');
-});
+app.use('/static', express.static(path.join(__dirname, '/public')));
+
+
+//app.use('/static', express.static(path.join(__dirname, '/client')))
+//app.use('/static', express.static(path.join(__dirname, '/build')))
+
+//app.get("/", (req, res) => {
+ // res.sendFile(__dirname + 'script.js');
+//});

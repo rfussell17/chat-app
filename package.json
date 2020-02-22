@@ -12,13 +12,10 @@
     "type": "git",
     "url": "git+https://github.com/rfussell17/chat-app.git"
   },
-  "author": "Robin F",
+  "author": "Robin F.",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/rfussell17/chat-app/issues"
   },
-  "homepage": "https://github.com/rfussell17/chat-app#readme",
-  "dependencies": {
-    "express": "^4.17.1"
-  }
+  "homepage": "https://github.com/rfussell17/chat-app#readme"
 }
