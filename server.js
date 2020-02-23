@@ -16,12 +16,8 @@ app.get("/json", (req, res) => {
   res.json({ message: "Hello world" });
 });
 
-app.use('/static', express.static(path.join(__dirname, '/public')));
+app.get("/", (req, res) => {
+  res.sendFile(__dirname + '/client/build/index.html');
+});
 
-
-//app.use('/static', express.static(path.join(__dirname, '/client')))
-//app.use('/static', express.static(path.join(__dirname, '/build')))
-
-//app.get("/", (req, res) => {
- // res.sendFile(__dirname + 'script.js');
-//});
+app.use('/js', express.static(path.join(__dirname, '/client/build/js')));
