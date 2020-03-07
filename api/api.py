@@ -8,11 +8,11 @@ app.config["DEBUG"] = True
 logs = [
     {'id': 0,
      'user': 'Me',
-     'message': ''
+     'message': 'hey-o'
     },
     {'id': 1,
      'user': 'Guest',
-     'message': ''
+     'message': 'oh hi mark'
      }
 ]
 
@@ -26,6 +26,6 @@ def home():
 # A route to return all of the available entries in our catalog.
 @app.route('/api/v1/resources/books/all', methods=['GET'])
 def api_all():
-    return jsonify(books)
+    return jsonify(logs)
 
 app.run()
