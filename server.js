@@ -1,4 +1,3 @@
-
 const express = require('express');
 const app = express();
 const port = process.env.PORT || 3000;
@@ -31,9 +30,6 @@ app.post('api/users', (req, res) => {
 app.get('api/users/{id}', (req, res) => {
   res.send('user id get request')
 });
-
-
-app.use('/js', express.static(path.join(__dirname, '/client/build/js')));
 
 
 // console.log that your server is up and running
