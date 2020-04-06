@@ -15,7 +15,7 @@ app.get('api/messages', function (req, res) {
   res.send('message get request')
 });
 
-app.post('api messages', (req, res) => {
+app.post('api/messages', (req, res) => {
   res.send('message post request')
 });
 
