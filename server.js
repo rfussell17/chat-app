@@ -1,11 +1,15 @@
 const express = require('express');
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3001;
 var path = require("path");
+
+
 
 app.get("/json", (req, res) => {
   res.json({ message: "Hello world" });
 });
+
+app.use('/', express.static(path.join(__dirname, '/client', '/build')));
 
 app.get("/", (req, res) => {
   res.sendFile(__dirname + '/client/build/index.html');
