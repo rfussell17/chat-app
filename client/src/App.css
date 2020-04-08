@@ -1,6 +1,5 @@
 body {
-  background-image: url("images/win98.jpg");
-  background-position: auto;
+  background-image: url('./images/win98.jpg');
   padding-top: 20px;
   padding-bottom: 20px;
 }

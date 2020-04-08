@@ -10,6 +10,7 @@ import "./Sidebar.css";
 import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import Sidebar from "./components/Sidebar";
 
 class App extends React.Component {
   constructor(props) {
@@ -48,10 +49,7 @@ class App extends React.Component {
   render() {
     return (
       <Container className="App">
-        <div className="sidebar">
-          <p className="title">Online:</p>
-          <div name="user">{this.state.user}</div>
-        </div>
+        <Sidebar/>
         <Container className="desktop">
           <div className="outputbox">
             {this.state.messages.map((messages, index) => {
