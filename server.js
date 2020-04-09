@@ -57,11 +57,30 @@ app.get("/api/users/:id", (req, res) => {
 
 
 app.post("/api/users", (req, res) => {
+  if(!req.body.user || req.body.user.length < 2){
+    res.status(400).send("Name is required and should be at least 2 characters");
+    return;
+  }
 
+  const user = {
+    id: users.length + 1,
+    user: req.body.user
+  };
+  users.push(user);
+  res.send(user)
 });
 
 app.post("/api/messages", (req, res) => {
-  
+  if(!req.body.text || req.body.text.length < 1){
+    res.status(400).send("You need to input at least 1 character");
+    return;
+  }
+  const text = {
+    id: messages.length + 1,
+    text: req.body.text
+  };
+  messages.push(text);
+  res.send(text);
 });
 
 // console.log that your server is up and running

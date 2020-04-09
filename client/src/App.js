@@ -3,7 +3,6 @@ import uuid from "uuid/v4";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
-import "./MessageBox.css";
 import "./ChatScreen.css";
 import "./Sidebar.css";
 
