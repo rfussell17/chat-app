@@ -49,6 +49,7 @@ class App extends React.Component {
   render() {
     return (
       <Container className="App">
+      <Container className="container-1">
         <Sidebar/>
         <Container className="desktop">
           <div className="outputbox">
@@ -76,6 +77,7 @@ class App extends React.Component {
               </Button>
             </Form>
           </Container>
+        </Container>
         </Container>
       </Container>
     );

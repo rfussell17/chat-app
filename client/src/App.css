@@ -1,5 +1,6 @@
 body {
   background-image: url('./images/win98.jpg');
+  background-repeat: no-repeat;
   padding-top: 20px;
   padding-bottom: 20px;
 }
@@ -16,3 +17,4 @@ body {
 .sidebar {
   font-size: 12px;
 }
+
