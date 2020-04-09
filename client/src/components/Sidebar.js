@@ -1,11 +1,8 @@
 import React from 'react'
-import User from "./User";
+import "./App.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 class Sidebar extends React.Component {
-
-
-
-
   constructor(props) {
     super(props);
     this.state = { user: 'Robin' };

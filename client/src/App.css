@@ -16,3 +16,48 @@ body {
 .sidebar {
   font-size: 12px;
 }
+
+.border {
+  padding: 40px;
+}
+
+.sidebar{
+  font-size: 16px;
+  float: left;
+  position: left;
+  padding-top: 30px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-weight: 600; 
+  margin-top: 30px;
+  padding-bottom: 475px;
+  border-radius: 6px;
+  margin-left: 15px;
+}
+
+.title {
+  font-weight: 800;
+}
+
+.outputbox {
+  background-color: white;
+  height: 500px;
+  font-size: 14;
+  margin-top: 20px;
+  margin-right: 15px;
+  border-radius: 5px;
+  padding-left: 15px;
+  padding-top: 10px;
+  margin-left: 15px;
+  overflow-y: auto;
+}
+
+span {
+  font-weight: 600;
+}
+
+.user {
+  color:black;
+  font-weight: 600;
+}
+
