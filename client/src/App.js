@@ -3,8 +3,6 @@ import uuid from "uuid/v4";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
-import "./ChatScreen.css";
-import "./Sidebar.css";
 
 import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
