@@ -61,6 +61,8 @@ app.post("/api/users", (req, res) => {
   };
   users.push(user);
   res.status(201).send(user);
+  res.set('Content-Type', 'application/json');
+res.send({ name: 'Andy' });
 });
 
 app.post("/api/messages", (req, res) => {

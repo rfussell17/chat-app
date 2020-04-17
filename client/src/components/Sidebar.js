@@ -7,7 +7,7 @@ class Sidebar extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { user: 'Robin' };
+    this.state = { user: 'Robin'}, {user: 'Bob'}
   }
     render() {
       return (
