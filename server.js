@@ -9,12 +9,12 @@ var path = require("path");
 
 const users = [
   { id: 1, name: "Robin" },
-  { id: 2, name: "Glen" }
+  { id: 2, name: "Bob" }
 ];
 
 const messages = [
   { id: 1, user: "Robin", text: "Hey there" },
-  { id: 2, user: "Glen", text: "Oh hey" },
+  { id: 2, user: "Bob", text: "Oh hey" },
 ];
 
 
