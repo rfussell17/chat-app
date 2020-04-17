@@ -1,32 +1,37 @@
 body {
-  background-image: url('./images/win98.jpg');
-  background-repeat: no-repeat;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  height: 100vh;
+  background-image: linear-gradient(to right bottom, rgba(74, 109, 179, 0.8), rgba(226, 238, 238, 0.8)), url("./images/win98.jpg");
+  background-size: cover;
+  background-position: top;
+  position: relative;
+  box-sizing: border-box;
+  padding: 2rem;
 }
 
 .desktop {
   background-color: #2cadfdc9;
-  padding-bottom: 55px;
-  margin-top: 30px;
-  padding-top: 10px;
+  padding-bottom: 5rem;
+  margin-top: 2rem;
+  padding-top: 1rem;
   margin-bottom: 0;
-  padding-left: 150px;
-  border-radius: 10px;
+  padding-left: 10rem;
+  border-radius: 1rem;
+  border: 2px solid rgba(74, 109, 179, 0.8);
+  box-shadow: 8px 0px 16px -5px rgba(0,0,0,0.75);
 }
 
 .sidebar{
-  font-size: 16px;
+  font-size: 1rem;
   float: left;
   position: left;
-  padding-top: 30px;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding-top: 3rem;
+  padding-left: .5rem;
+  padding-right: 1rem;
   font-weight: 600; 
-  margin-top: 30px;
-  padding-bottom: 475px;
-  border-radius: 6px;
-  margin-left: 15px;
+  margin-top: 3rem;
+  padding-bottom: 45rem;
+  border-radius: .5rem;
+  margin-left: 1rem;
 }
 
 .title {
@@ -35,15 +40,16 @@ body {
 
 .outputbox {
   background-color: white;
-  height: 500px;
-  font-size: 14;
-  margin-top: 20px;
-  margin-right: 15px;
+  height: 35rem;
+  font-size: 1rem;
+  margin-top: 2rem;
+  margin-right: 1rem;
   border-radius: 5px;
-  padding-left: 15px;
-  padding-top: 10px;
-  margin-left: 15px;
+  padding-left: .5rem;
+  padding-top: .5rem;
+  margin-left: 1rem;
   overflow-y: auto;
+  border: 2px solid rgba(74, 109, 179, 0.8);
 }
 
 span {
@@ -57,16 +63,20 @@ span {
 
 .form-control {
   color: black;
-  margin-top: 4%;
+  margin-top: 4rem;
   margin-left: 0;
   border-radius: 5px;
-  padding-bottom: 20px;
-  padding-top: 60px;
+  padding-bottom: 1rem;
+  padding-top: 5rem;
+  border: 2px solid rgba(74, 109, 179, 0.8);
 }
 .button {
   float: right;
-  margin-top: 15px;
-  padding-top: 6px;
-  padding-bottom: 10px;
+  margin-top: 1.6rem;
+  padding-top: .5rem;
+  padding-bottom: .5rem;
+  background-color: #eee;
+  color: black;
+  border: 2px solid rgba(74, 109, 179, 0.8);
 }
 
