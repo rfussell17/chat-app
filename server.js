@@ -60,7 +60,7 @@ app.post("/api/users", (req, res) => {
     name: req.body.name,
   };
   users.push(user);
-  res.status(201).send(user);
+  res.status(201).setHeader('Location', "/api/users/:id").send(user);
 });
 
 app.post("/api/messages", (req, res) => {

@@ -1,3 +1,7 @@
+* {
+  margin: 0 auto;
+}
+
 body {
   height: 100vh;
   background-image: linear-gradient(to right bottom, rgba(74, 109, 179, 0.8), rgba(226, 238, 238, 0.8)), url("./images/win98.jpg");
