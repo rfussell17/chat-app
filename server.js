@@ -1,6 +1,15 @@
 const express = require("express");
 const app = express();
 
+const {Client} = require('pg')
+const client = new Client({
+  user: "Admin1",
+  password: "Pass22!",
+  host: "DESKTOP-AB0BUF9",
+  port: 5432,
+  database: "chat_app"
+})
+
 app.use(express.json());
 
 const port = process.env.PORT || 3001;
@@ -16,6 +25,28 @@ const messages = [
   { id: 1, "user": "Robin", "text": "Hey there" },
   { id: 2, "user": "Bob", "text": "Oh hey" },
 ];
+
+
+function getUsers() {
+//query all users
+  SELECT * FROM users;
+}
+
+function createUser(username) {
+//create a user
+}
+
+function getMessages() {
+//query all messages
+}
+
+function getMessage(id) {
+//query single message by id
+}
+
+function createMessage(userId, text) {
+//create a message
+}
 
 
 
