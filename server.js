@@ -1,19 +1,24 @@
 const express = require("express");
 const app = express();
 
+app.use(express.json());
+
+const port = process.env.PORT || 3001;
+var path = require("path");
+
+
 const {Client} = require('pg')
 const client = new Client({
   user: "Admin1",
   password: "Pass22!",
   host: "DESKTOP-AB0BUF9",
-  port: 5432,
   database: "chat_app"
 })
 
-app.use(express.json());
-
-const port = process.env.PORT || 3001;
-var path = require("path");
+client.connect()
+.then( () => console.log("Connected"))
+.catch(e => console.log)
+.finally(() => client.end())
 
 
 const users = [
@@ -29,7 +34,6 @@ const messages = [
 
 function getUsers() {
 //query all users
-  SELECT * FROM users;
 }
 
 function createUser(username) {
@@ -47,7 +51,6 @@ function getMessage(id) {
 function createMessage(userId, text) {
 //create a message
 }
-
 
 
 app.get("/json", (req, res) => {
