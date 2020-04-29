@@ -1,24 +1,18 @@
 const express = require("express");
+const bodyParser = require('body-parser')
 const app = express();
-
-app.use(express.json());
-
 const port = process.env.PORT || 3001;
+const db = require('./queries')
+
 var path = require("path");
 
 
-const {Client} = require('pg')
-const client = new Client({
-  user: "Admin1",
-  password: "Pass22!",
-  host: "DESKTOP-AB0BUF9",
-  database: "chat_app"
-})
-
-client.connect()
-.then( () => console.log("Connected"))
-.catch(e => console.log)
-.finally(() => client.end())
+app.use(bodyParser.json())
+app.use(
+  bodyParser.urlencoded({
+    extended: true,
+  })
+)
 
 
 const users = [
