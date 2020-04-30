@@ -1,49 +1,54 @@
 const express = require("express");
-const bodyParser = require('body-parser')
 const app = express();
 const port = process.env.PORT || 3001;
 
 var path = require("path");
 
-
-const {Client} = require('pg')
+const { Client } = require("pg");
 const client = new Client({
   user: "postgres",
   password: "Pass22!",
   host: "localhost",
   port: 5432,
-  database: "chat_app"
-})
+  database: "chat_app",
+});
 
-client.connect()
-.then(() => console.log("Connected Successfully"))
-.then(() => client.query("select * from users, messages"))
-.then(results => console.table(results.rows))
-.catch(e => console.log(e))
-.finally(() => client.end())
+execute();
 
+async function execute() {
+  try {
+    await client.connect();
+    console.log("Connected Successfully");
+    const results = await client.query("select * from users, messages");
+    console.table(results.rows);
+  } catch (ex) {
+    console.log(`Something went wrong ${ex}`);
+  } finally {
+    await client.end();
+    console.log("Client disconnected succesfully");
+  }
+}
 
 
 function getUsers() {
-//query all users
+  //query all users
 }
 
 function createUser(username) {
-//create a user
+  //create a user
 }
 
 function getMessages() {
-//query all messages
+  //query all messages
 }
 
 function getMessage(id) {
-//query single message by id
+  //query single message by id
 }
 
 function createMessage(userId, text) {
-//create a message
+  //create a message
 }
-
 
 app.get("/json", (req, res) => {
   res.json({ message: "Hello world" });
@@ -86,7 +91,7 @@ app.post("/api/users", (req, res) => {
     name: req.body.name,
   };
   users.push(user);
-  res.status(201).setHeader('Location', "/api/users/:id").send(user);
+  res.status(201).setHeader("Location", "/api/users/:id").send(user);
 });
 
 app.post("/api/messages", (req, res) => {
@@ -97,7 +102,7 @@ app.post("/api/messages", (req, res) => {
   const message = {
     id: messages.length + 1,
     user: req.body.user,
-    text: req.body.text
+    text: req.body.text,
   };
   messages.push(message);
   res.send(message);
