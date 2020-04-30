@@ -2,17 +2,9 @@ const express = require("express");
 const bodyParser = require('body-parser')
 const app = express();
 const port = process.env.PORT || 3001;
-const db = require('./queries')
 
 var path = require("path");
 
-
-app.use(bodyParser.json())
-app.use(
-  bodyParser.urlencoded({
-    extended: true,
-  })
-)
 
 const {Client} = require('pg')
 const client = new Client({
@@ -25,20 +17,11 @@ const client = new Client({
 
 client.connect()
 .then(() => console.log("Connected Successfully"))
-.then(() => client.query("select * from users"))
+.then(() => client.query("select * from users, messages"))
 .then(results => console.table(results.rows))
 .catch(e => console.log(e))
 .finally(() => client.end())
 
-const users = [
-  { id: 1, "name": "Robin" },
-  { id: 2, "name": "Bob" }
-];
-
-const messages = [
-  { id: 1, "user": "Robin", "text": "Hey there" },
-  { id: 2, "user": "Bob", "text": "Oh hey" },
-];
 
 
 function getUsers() {
