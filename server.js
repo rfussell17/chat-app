@@ -14,6 +14,21 @@ app.use(
   })
 )
 
+const {Client} = require('pg')
+const client = new Client({
+  user: "postgres",
+  password: "Pass22!",
+  host: "localhost",
+  port: 5432,
+  database: "chat_app"
+})
+
+client.connect()
+.then(() => console.log("Connected Successfully"))
+.then(() => client.query("select * from users"))
+.then(results => console.table(results.rows))
+.catch(e => console.log(e))
+.finally(() => client.end())
 
 const users = [
   { id: 1, "name": "Robin" },
