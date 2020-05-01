@@ -2,7 +2,7 @@
 
 Keep in touch with your friends and family with this chat app. This is a work in progress. Full summary, src code and link to working app coming soon.
 
- <img src="images/frontend2.png"   title="HTML5 Powered"> <img src="images/react3.png">
+ <img src="client/images/frontend2.png"   title="HTML5 Powered"> <img src="client/images/react3.png">
 
  <br>
 
@@ -10,7 +10,7 @@ Keep in touch with your friends and family with this chat app. This is a work in
 
 I built this chat app to re-create an old messenger service. As I was refining the early 2000’s aesthetic of the messenger app, I wanted to take my skills to the next level by making this app fully functional as a full-stack application. 
 
-<img src="images/chat.png"   title="expense">
+<img src="client/images/chat_img.png"   title="expense">
 
 **Author**
 <br>
