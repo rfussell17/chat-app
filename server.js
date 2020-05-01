@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const port = process.env.PORT || 3001;
+const dataAccess = require('./data-access');
 
 var path = require("path");
 
@@ -30,26 +31,6 @@ async function execute() {
 }
 
 
-function getUsers() {
-  //query all users
-}
-
-function createUser(username) {
-  //create a user
-}
-
-function getMessages() {
-  //query all messages
-}
-
-function getMessage(id) {
-  //query single message by id
-}
-
-function createMessage(userId, text) {
-  //create a message
-}
-
 app.get("/json", (req, res) => {
   res.json({ message: "Hello world" });
 });
@@ -62,12 +43,22 @@ app.get("/", (req, res) => {
 
 //--------------get requests-------------------------------------
 
-app.get("/api/messages", (req, res) => {
-  res.send(messages);
+app.get("/api/messages", async (req, res) => {
+  const messagesResponse = await dataAccess.getMessages();
+  if (messagesResponse.success === true) {
+    res.send(messagesResponse.data);
+  } else {
+    res.status(500).send(messagesResponse.error);
+  }
 });
 
-app.get("/api/users", (req, res) => {
-  res.send(users);
+app.get("/api/users", async (req, res) => {
+  const usersResponse = await dataAccess.getUsers();
+  if (usersResponse.success === true) {
+    res.send(usersResponse.data);
+  } else {
+    res.status(500).send(usersResponse.error);
+  }
 });
 
 app.get("/api/users/:id", (req, res) => {
