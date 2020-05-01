@@ -1,6 +1,6 @@
 ## Chat App (WIP)
 
-Keep track of where your hard earned money goes with this expense tracker app.
+Keep in touch with your friends and family with this chat app. This is a work in progress. Full summary, src code and link to working app coming soon.
 
  <img src="images/frontend2.png"   title="HTML5 Powered"> <img src="images/react3.png">
 
