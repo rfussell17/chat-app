@@ -8,7 +8,7 @@ Keep track of where your hard earned money goes with this expense tracker app.
 
 ## Summary
 
-I built this chat app to re-create an episode of the office where Dwight is supposedly challenged by the computer to sell more paper. As I was refining the early 2000’s aesthetic of the messenger app, I wanted to take my React skills to the next level by making this app fully functional. 
+I built this chat app to re-create an old messenger service. As I was refining the early 2000’s aesthetic of the messenger app, I wanted to take my skills to the next level by making this app fully functional as a full-stack application. 
 
 <img src="images/chat.png"   title="expense">
 
