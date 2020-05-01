@@ -2,7 +2,7 @@
 
 Keep track of where your hard earned money goes with this expense tracker app.
 
- <img src="/images/frontend2.png"   title="HTML5 Powered"> <img src="/images/react3.png">
+ <img src="images/frontend2.png"   title="HTML5 Powered"> <img src="images/react3.png">
 
  <br>
 
@@ -10,7 +10,7 @@ Keep track of where your hard earned money goes with this expense tracker app.
 
 I built this chat app to re-create an episode of the office where Dwight is supposedly challenged by the computer to sell more paper. As I was refining the early 2000’s aesthetic of the messenger app, I wanted to take my React skills to the next level by making this app fully functional. 
 
-<img src="/images/chat.png"   title="expense">
+<img src="images/chat.png"   title="expense">
 
 **Author**
 <br>
