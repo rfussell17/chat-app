@@ -23,7 +23,7 @@ async function createMessage(userId, message) {
     return {
       data: res.rows[0].user_id,
       success: true,
-      errur: null
+      error: null
     }
   } catch (err) {
     return {
