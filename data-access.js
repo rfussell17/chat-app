@@ -7,7 +7,6 @@ const pool = new Pool({
   database: "chat_app"
 });
 
-
 async function getMessages() {
   const client = await pool.connect();
   const res = await client.query('SELECT * FROM messages');
@@ -34,8 +33,32 @@ async function createMessage(user_id, text) {
     }
   }
 }
+async function getUserId(user_id) {
+  const client = await pool.connect();
+  const res = await client.query('SELECT * FROM users WHERE id (user_id) VALUES($1) RETURNING user_id', [user_id]);
+    return res.rows;
+}
+async function createUser(user_id, username) {
+  const client = await pool.connect();
+  try {
+    const res = await client.query('INSERT INTO users (user_id, username) VALUES($1, $2) RETURNING user_id', [user_id, username]);
+    return {
+      data: res.rows[0].username,
+      success: true,
+      error: null
+    }
+  } catch (err) {
+    return {
+      success: false,
+      error: err
+    }
+  }
+}
+
 module.exports = {
   getMessages: getMessages,
   getUsers: getUsers,
-  createMessage: createMessage
+  getUserId: getUserId,
+  createMessage: createMessage,
+  createUser: createUser
 }

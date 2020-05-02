@@ -5,6 +5,7 @@ const dataAccess = require('./data-access');
 
 var path = require("path");
 
+
 app.get("/json", (req, res) => {
   res.json({ message: "Hello world" });
 });
@@ -14,6 +15,8 @@ app.use("/", express.static(path.join(__dirname, "/client", "/build")));
 app.get("/", (req, res) => {
   res.sendFile(__dirname + "/client/build/index.html");
 });
+
+
 
 //--------------get requests-------------------------------------
 
@@ -35,15 +38,18 @@ app.get("/api/users", async (req, res) => {
   }
 });
 
-app.get("/api/users/:id", (req, res) => {
-  const user = users.find((u) => u.id === parseInt(req.params.id));
-  if (!user) res.status(404).send("User not found");
-  res.send(user);
+app.get("/api/users/:id", async (req, res) => {
+  const usersResponse = dataAccess.getUserId();
+  if (usersResponse.success === true) {
+    res.send(usersResponse.data);
+  } else {
+    res.status(500).send(usersResponse.error);
+  }
 });
 
 //--------------post requests--------------------------------------
 
-app.post("/api/users", (req, res) => {
+app.post("/api/users", async (req, res) => {
   if (!req.body.name || req.body.name.length < 2) {
     res
       .status(400)
@@ -59,7 +65,7 @@ app.post("/api/users", (req, res) => {
   res.status(201).setHeader("Location", "/api/users/:id").send(user);
 });
 
-app.post("/api/messages", (req, res) => {
+app.post("/api/messages", async (req, res) => {
   if (!req.body.text || req.body.text.length < 1) {
     res.status(400).send("You need to input at least 1 character");
     return;
