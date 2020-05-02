@@ -8,10 +8,26 @@ const pool = new Pool({
 });
 
 async function getMessages() {
-  const client = await pool.connect();
-  const res = await client.query('SELECT * FROM messages');
-  return res.rows;
+  try {
+    const client = await pool.connect();
+    const res = await client.query(`
+    SELECT m.id, m.text, u.username FROM messages AS m
+      INNER JOIN users AS u
+      ON u.id = m.user_id`);
+    return {
+      data: res.rows,
+      success: true,
+      error: null
+    }
+  } catch(err) {
+    return {
+      success: false,
+      error: err
+    }
+  }
 }
+
+
 async function getUsers() {
   const client = await pool.connect();
   const res = await client.query('SELECT * FROM users');

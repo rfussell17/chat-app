@@ -1,5 +1,6 @@
 import React from "react";
 import uuid from "uuid/v4";
+import axios from "axios";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
@@ -22,6 +23,13 @@ class App extends React.Component {
     this.gatherOutput = this.gatherOutput.bind(this);
   }
 
+  async componentDidMount() {
+    const response = await axios.get('api/messages'); 
+    this.setState({
+      messages: response.data
+    })
+  }
+
   gatherOutput(message) {
     this.setState({
       messages: [...this.state.messages, message]
@@ -31,6 +39,9 @@ class App extends React.Component {
   handleSubmit(event) {
     console.log("handleSubmit");
     event.preventDefault();
+    //send a post request to create message
+    //if request is successfull (201) get all new messages from server
+    //axios - update state to include new messages
     this.gatherOutput({ ...this.state, id: uuid() });
     this.setState({
       message: ""
@@ -50,11 +61,11 @@ class App extends React.Component {
         <Sidebar/>
         <Container className="desktop">
           <div className="outputbox">
-            {this.state.messages.map((messages, index) => {
+            {this.state.messages.map((message, index) => {
               return (
                 <div key={index} className="msgObject">
-                  <div className="user">{messages.user}:</div>
-                  <div className="message">{messages.message}</div>
+                  <div className="user">{message.username}:</div>
+                  <div className="message">{message.text}</div>
                 </div>
               );
             })}

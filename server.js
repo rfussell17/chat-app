@@ -22,6 +22,8 @@ app.get("/", (req, res) => {
 
 app.get("/api/messages", async (req, res) => {
   const messagesResponse = await dataAccess.getMessages();
+  console.log('message response')
+  console.log(messagesResponse)
   if (messagesResponse.success === true) {
     res.send(messagesResponse.data);
   } else {
