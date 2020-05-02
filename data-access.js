@@ -16,10 +16,10 @@ async function getUsers() {
   const res = await client.query('SELECT * FROM users');
   return res.rows;
 }
-async function createMessage(userId, message) {
+async function createMessage(user_id, text) {
   const client = await pool.connect();
   try {
-    const res = await client.query('INSERT INTO messages (user_id, message) VALUES($1, $2) RETURNING user_id', [userId, message]);
+    const res = await client.query('INSERT INTO messages (user_id, text) VALUES($1, $2) RETURNING user_id', [user_id, text]);
     return {
       data: res.rows[0].user_id,
       success: true,
