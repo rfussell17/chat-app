@@ -5,32 +5,6 @@ const dataAccess = require('./data-access');
 
 var path = require("path");
 
-const { Client } = require("pg");
-const client = new Client({
-  user: "postgres",
-  password: "Pass22!",
-  host: "localhost",
-  port: 5432,
-  database: "chat_app",
-});
-
-execute();
-
-async function execute() {
-  try {
-    await client.connect();
-    console.log("Connected Successfully");
-    const results = await client.query("select * from users, messages");
-    console.table(results.rows);
-  } catch (ex) {
-    console.log(`Something went wrong ${ex}`);
-  } finally {
-    await client.end();
-    console.log("Client disconnected succesfully");
-  }
-}
-
-
 app.get("/json", (req, res) => {
   res.json({ message: "Hello world" });
 });

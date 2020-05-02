@@ -4,8 +4,10 @@ const pool = new Pool({
   password: "Pass22!",
   host: "localhost",
   port: 5432,
-  database: "chat_app",
+  database: "chat_app"
 });
+
+
 async function getMessages() {
   const client = await pool.connect();
   const res = await client.query('SELECT * FROM messages');
