@@ -36,17 +36,18 @@ class App extends React.Component {
     });
   }
 
-  handleSubmit(event) {
+  async handleSubmit(event) {
     console.log("handleSubmit");
     event.preventDefault();
-    //send a post request to create message
+    const response = await axios.post('api/messages'); 
+    this.setState({
+      messages: response.data
+    })
+  }
+
+     //send a post request to create message 
     //if request is successfull (201) get all new messages from server
     //axios - update state to include new messages
-    this.gatherOutput({ ...this.state, id: uuid() });
-    this.setState({
-      message: ""
-    });
-  }
 
   handleChange(event) {
     console.log("handleChange");
