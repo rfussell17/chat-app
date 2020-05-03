@@ -22,8 +22,6 @@ app.get("/", (req, res) => {
 
 app.get("/api/messages", async (req, res) => {
   const messagesResponse = await dataAccess.getMessages();
-  console.log('message response')
-  console.log(messagesResponse)
   if (messagesResponse.success === true) {
     res.send(messagesResponse.data);
   } else {
@@ -52,6 +50,33 @@ app.get("/api/users/:id", async (req, res) => {
 //--------------post requests--------------------------------------
 
 app.post("/api/users", async (req, res) => {
+  const usersResponse = await dataAccess.createUser();
+  if (usersResponse.success === true) {
+    res.status(201).send(usersResponse.data);
+  } else {
+    res.status(500).send(usersResponse.error);
+  }
+});
+
+
+app.post("/api/messages", async (req, res) => {
+  const messagesResponse = await dataAccess.createMessage();
+  if (messagesResponse.success === true) {
+    res.status(201).send(messagesResponse.data);
+  } else {
+    res.status(500).send(messagesResponse.error);
+  }
+});
+
+
+app.listen(port, () => console.log(`Listening on port ${port}`));
+
+
+
+/* 
+old users post
+
+app.post("/api/users", async (req, res) => {
   if (!req.body.name || req.body.name.length < 2) {
     res
       .status(400)
@@ -67,7 +92,11 @@ app.post("/api/users", async (req, res) => {
   res.status(201).setHeader("Location", "/api/users/:id").send(user);
 });
 
-app.post("/api/messages", async (req, res) => {
+
+
+--------old message post------
+
+ app.post("/api/messages", async (req, res) => {
   if (!req.body.text || req.body.text.length < 1) {
     res.status(400).send("You need to input at least 1 character");
     return;
@@ -80,6 +109,4 @@ app.post("/api/messages", async (req, res) => {
   messages.push(message);
   res.send(message);
 });
-
-// console.log that your server is up and running
-app.listen(port, () => console.log(`Listening on port ${port}`));
+*/
