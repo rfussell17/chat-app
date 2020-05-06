@@ -30,7 +30,7 @@ app.get("/api/messages", async (req, res) => {
 });
 
 app.get("/api/users", async (req, res) => {
-  const usersResponse = await dataAccess.getUsers();
+ const usersResponse = await dataAccess.getUsers();
   if (usersResponse.success === true) {
     res.send(usersResponse.data);
   } else {
@@ -39,7 +39,7 @@ app.get("/api/users", async (req, res) => {
 });
 
 app.get("/api/users/:id", async (req, res) => {
-  const usersResponse = dataAccess.getUserId();
+  const usersResponse = await dataAccess.getUserId();
   if (usersResponse.success === true) {
     res.send(usersResponse.data);
   } else {

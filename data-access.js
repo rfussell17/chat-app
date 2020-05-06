@@ -4,7 +4,7 @@ const pool = new Pool({
   password: "Pass22!",
   host: "localhost",
   port: 5432,
-  database: "chat_app"
+  database: "chat_app",
 });
 
 async function getMessages() {
@@ -17,16 +17,15 @@ async function getMessages() {
     return {
       data: res.rows,
       success: true,
-      error: null
-    }
-  } catch(err) {
+      error: null,
+    };
+  } catch (err) {
     return {
       success: false,
-      error: err
-    }
+      error: err,
+    };
   }
 }
-
 
 async function getUsers() {
   try {
@@ -35,70 +34,78 @@ async function getUsers() {
     SELECT u.id, u.username FROM messages AS m
       INNER JOIN users AS u
       ON u.id = m.user_id`);
-      return {
-        data: res.rows,
-        success: true,
-        error: null
-      }
-    } catch(err) {
-      return {
-        success: false,
-        error: err
-      }
-    }
+    return {
+      data: res.rows,
+      success: true,
+      error: null,
+    };
+  } catch (err) {
+    return {
+      success: false,
+      error: err,
+    };
   }
+}
 
-  async function getUserId() {
-    try {
-      const client = await pool.connect();
-      const res = await client.query(`
-      SELECT username FROM users WHERE users.id = messages.user_id`);
-        return {
-          data: res.rows.id,
-          success: true,
-          error: null
-        }
-      } catch(err) {
-        return {
-          success: false,
-          error: err
-        }
-      }
-    }
+async function getUserId() {
+  try {
+    const client = await pool.connect();
+    const text = "INSERT INTO users(username, id) VALUES($1, $2) RETURNING *";
+    const values = [, ];
+    // callback
+    const response = await client.query(text, values);
+    return {
+      data: res.rows.id,
+      success: true,
+      error: null,
+    };
+  } catch (err) {
+    return {
+      success: false,
+      error: err,
+    };
+  }
+}
 
 async function createMessage(user_id, text, username) {
   try {
     const client = await pool.connect();
-    const res = await client.query(`
+    const res = await client.query(
+      `
     INSERT INTO messages (user_id, text, username)
-     VALUES($1, $2, $3)`, [user_id, text, username])
-      return {
-        data: res.rows,
-        success: true,
-        error: null
-      }
-    } catch(err) {
-      return {
-        success: false,
-        error: err
-      }
-    }
+     VALUES($1, $2, $3)`,
+      [user_id, text, username]
+    );
+    return {
+      data: res.rows,
+      success: true,
+      error: null,
+    };
+  } catch (err) {
+    return {
+      success: false,
+      error: err,
+    };
   }
+}
 
 async function createUser(user_id, username) {
   try {
     const client = await pool.connect();
-    const res = await client.query('INSERT INTO users (user_id, username) VALUES($1, $2) RETURNING user_id', [user_id, username]);
+    const res = await client.query(
+      "INSERT INTO users (user_id, username) VALUES($1, $2) RETURNING user_id",
+      [user_id, username]
+    );
     return {
       data: res.rows[0].username,
       success: true,
-      error: null
-    }
+      error: null,
+    };
   } catch (err) {
     return {
       success: false,
-      error: err
-    }
+      error: err,
+    };
   }
 }
 
@@ -107,5 +114,5 @@ module.exports = {
   getUsers: getUsers,
   getUserId: getUserId,
   createMessage: createMessage,
-  createUser: createUser
-}
+  createUser: createUser,
+};
