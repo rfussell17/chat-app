@@ -26,7 +26,7 @@ class App extends React.Component {
   async componentDidMount() {
     const response = await axios.get('api/messages'); 
     this.setState({
-      messages: response.data,
+      messages: response.data
     })
   }
 
