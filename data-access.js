@@ -67,14 +67,14 @@ async function getUserId() {
   }
 }
 
-async function createMessage(user_id, text, username) {
+async function createMessage(user_id, text) {
   try {
     const client = await pool.connect();
     const res = await client.query(
       `
-    INSERT INTO messages (user_id, text, username)
-     VALUES($1, $2, $3)`,
-      [user_id, text, username]
+    INSERT INTO messages (user_id, text, created_date)
+     VALUES($1, $2, NOW())`,
+      [user_id, text]
     );
     return {
       data: res.rows,

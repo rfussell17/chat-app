@@ -59,8 +59,8 @@ app.post("/api/users", async (req, res) => {
 });
 
 
-app.post("/api/messages", async (req, res) => {
-  const messagesResponse = await dataAccess.createMessage();
+app.post("/api/messages", async (submitMsg, res) => {
+  const messagesResponse = await dataAccess.createMessage(submitMsg);
   if (messagesResponse.success === true) {
     res.status(201).send(messagesResponse.data);
   } else {
