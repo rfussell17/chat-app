@@ -1,5 +1,4 @@
 import React from "react";
-import uuid from "uuid/v4";
 import axios from "axios";
 
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -47,9 +46,9 @@ submitMsg = {
       user_id: '1',
       text: 'hey hey hey'
     }
-    const response = await axios.post('api/messages', submitMsg); 
+    const messagesResponse = await axios.post('api/messages', submitMsg); 
     this.setState({
-      messages: response.data
+      messages: messagesResponse.data
     })
   }
 

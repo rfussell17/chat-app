@@ -53,7 +53,7 @@ async function getUserId() {
     const text = "INSERT INTO users(username, id) VALUES($1, $2) RETURNING *";
     const values = [, ];
     // callback
-    const response = await client.query(text, values);
+    const res = await client.query(text, values);
     return {
       data: res.rows.id,
       success: true,
@@ -71,8 +71,7 @@ async function createMessage(user_id, text) {
   try {
     const client = await pool.connect();
     const res = await client.query(
-      `
-    INSERT INTO messages (user_id, text, created_date)
+      `INSERT INTO messages (user_id, text, created_date)
      VALUES($1, $2, NOW())`,
       [user_id, text]
     );
@@ -108,6 +107,7 @@ async function createUser(user_id, username) {
     };
   }
 }
+
 
 module.exports = {
   getMessages: getMessages,
