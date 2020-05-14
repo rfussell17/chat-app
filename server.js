@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+app.use(express.json());
 const port = process.env.PORT || 3001;
 const dataAccess = require('./data-access');
 
@@ -59,8 +60,8 @@ app.post("/api/users", async (req, res) => {
 });
 
 
-app.post("/api/messages", async (submitMsg, res) => {
-  const messagesResponse = await dataAccess.createMessage(submitMsg);
+app.post("/api/messages", async (req, res) => {
+  const messagesResponse = await dataAccess.createMessage(req.body.user_id, req.body.text);
   if (messagesResponse.success === true) {
     res.status(201).send(messagesResponse.data);
   } else {
