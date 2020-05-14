@@ -22,10 +22,6 @@ class App extends React.Component {
     this.gatherOutput = this.gatherOutput.bind(this);
   }
 
-submitMsg = {
-
-  }
-
   async componentDidMount() {
     const response = await axios.get('api/messages'); 
     this.setState({
@@ -44,7 +40,7 @@ submitMsg = {
     event.preventDefault();
     const submitMsg = {
       user_id: '1',
-      text: 'hey hey hey'
+      text: 'heLLO'
     }
     const messagesResponse = await axios.post('api/messages', submitMsg); 
     this.setState({
