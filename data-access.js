@@ -51,7 +51,7 @@ async function getUserId() {
   try {
     const client = await pool.connect();
     const text = "INSERT INTO users(username, id) VALUES($1, $2) RETURNING *";
-    const values = [, ];
+    const values = [,];
     // callback
     const res = await client.query(text, values);
     return {
@@ -107,7 +107,6 @@ async function createUser(user_id, username) {
     };
   }
 }
-
 
 module.exports = {
   getMessages: getMessages,

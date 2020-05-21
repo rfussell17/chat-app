@@ -2,10 +2,9 @@ const express = require("express");
 const app = express();
 app.use(express.json());
 const port = process.env.PORT || 3001;
-const dataAccess = require('./data-access');
+const dataAccess = require("./data-access");
 
 var path = require("path");
-
 
 app.get("/json", (req, res) => {
   res.json({ message: "Hello world" });
@@ -16,8 +15,6 @@ app.use("/", express.static(path.join(__dirname, "/client", "/build")));
 app.get("/", (req, res) => {
   res.sendFile(__dirname + "/client/build/index.html");
 });
-
-
 
 //--------------get requests-------------------------------------
 
@@ -31,7 +28,7 @@ app.get("/api/messages", async (req, res) => {
 });
 
 app.get("/api/users", async (req, res) => {
- const usersResponse = await dataAccess.getUsers();
+  const usersResponse = await dataAccess.getUsers();
   if (usersResponse.success === true) {
     res.send(usersResponse.data);
   } else {
@@ -59,9 +56,11 @@ app.post("/api/users", async (req, res) => {
   }
 });
 
-
 app.post("/api/messages", async (req, res) => {
-  const messagesResponse = await dataAccess.createMessage(req.body.user_id, req.body.text);
+  const messagesResponse = await dataAccess.createMessage(
+    req.body.user_id,
+    req.body.text
+  );
   if (messagesResponse.success === true) {
     res.status(201).send(messagesResponse.data);
   } else {
@@ -81,10 +80,7 @@ app.post("/api/messages", async (req, res) => {
 
 */
 
-
 app.listen(port, () => console.log(`Listening on port ${port}`));
-
-
 
 /* 
 old users post
