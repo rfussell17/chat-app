@@ -8,7 +8,7 @@ Keep in touch with your friends and family with this chat app. This is a work in
 
 ## Summary
 
-I built this chat app to re-create an old messenger service. As I was refining the early 2000’s aesthetic of the messenger app, I wanted to take my skills to the next level by making this app fully functional as a full-stack application. 
+I built this chat app to re-create an old messenger service. This is a full-stack application that has a React front end, postreSQL database and a nodeJS backend.
 
 <img src="client/images/chat_img.png"   title="expense">
 
